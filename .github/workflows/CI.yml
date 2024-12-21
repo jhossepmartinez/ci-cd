@@ -1,0 +1,14 @@
+name: CI
+on:
+  pull_request:
+
+jobs:
+  node-setup:
+    name: Setup
+    uses: ./.github/workflows/nodeSetup.yml
+  ESLint:
+    name: Check
+
+
+
+
