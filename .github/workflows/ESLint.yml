@@ -1,13 +1,10 @@
 name: Lint
 
 on:
-  pull_request:
-    branches:
-      - main
-      - development
+  workflow_call:
 
 jobs:
-  eslint:
+  ESLint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
