@@ -8,6 +8,8 @@ jobs:
     uses: ./.github/workflows/nodeSetup.yml
   ESLint:
     name: Check
+    uses: ./.github/workflows/ESLint.yml
+    needs: node-setup
 
 
 
