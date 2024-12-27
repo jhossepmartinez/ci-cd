@@ -39,9 +39,14 @@ jobs:
 
       - name: Cache Node Modules
         uses: actions/cache@v3
+        id: cache
         with:
           path: ./node_modules
           key: node_modules-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install dependencies if cache miss
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
 
       - name: Build
         run: npm run build
