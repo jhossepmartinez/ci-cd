@@ -7,8 +7,6 @@ function App() {
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-        </a>
       </div>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
