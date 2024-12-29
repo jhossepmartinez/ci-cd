@@ -10,7 +10,7 @@ jobs:
     name: Check
     uses: ./.github/workflows/ESLint.yml
     needs: node-setup
-  # deploy-github-page:
-  #   name: Github Page Deploy
-  #   uses: ./.github/workflows/deployGithubPage.yml
+  deploy:
+    name: Github Page Deploy
+    uses: ./.github/workflows/deployGithubPage.yml
 
