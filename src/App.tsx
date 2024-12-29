@@ -19,6 +19,7 @@ function App() {
         Click on the Vite and React logos to learn more AHORA SI CREO
         OLA ssdasdaaaa
         AMIGO PQ NO FUNCIONA BIEn
+        pls funciona
       </p>
     </>
   )
