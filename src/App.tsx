@@ -20,6 +20,7 @@ function App() {
         OLA ssdasdaaaa
         AMIGO PQ NO FUNCIONA BIEn
         pls funciona
+        no comprendo
       </p>
     </>
   )
