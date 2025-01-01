@@ -1,0 +1,60 @@
+name: Deploy Github Pages
+
+on:
+  push:
+    branches:
+      - development
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Cache Node Modules
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: ./node_modules
+          key: node_modules-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install dependencies if cache miss
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload dist folder
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

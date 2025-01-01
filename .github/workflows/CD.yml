@@ -1,0 +1,13 @@
+name: CD
+on:
+  pull_request:
+
+jobs:
+  node-setup:
+    name: Setup
+    uses: ./.github/workflows/nodeSetup.yml
+  github-pages-deploy:
+    name: Deploy
+    uses: ./.github/workflows/githubPagesDeploy.yml
+
+
