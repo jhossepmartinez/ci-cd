@@ -2,6 +2,7 @@ name: Deploy Github Pages
 
 on:
   workflow_call:
+
 permissions:
   contents: read
   pages: write

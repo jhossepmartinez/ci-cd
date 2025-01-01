@@ -10,4 +10,3 @@ jobs:
     name: Deploy
     uses: ./.github/workflows/githubPagesDeploy.yml
 
-
